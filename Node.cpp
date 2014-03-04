@@ -8,6 +8,8 @@
 #include <cstdlib> //provide NULL and size_t
 #include "Node.h"
 #include<string>
+#include<cassert>
+using namespace std;
 
 size_t Node::list_length(const Node* head_ptr)
 {
@@ -20,7 +22,7 @@ size_t Node::list_length(const Node* head_ptr)
 	}
 	return answer;
 }
-void list_head_insert(const Node*& head_ptr, const Node::value_type& entry)
+void list_head_insert(Node*& head_ptr, const Node::value_type& entry)
 {
 	head_ptr = new Node(entry, head_ptr);
 }
@@ -134,14 +136,15 @@ void list_tail_insert(Node*& head_ptr, const Node::value_type& entry)
 	{
 		previous = cursor;
 	}
-	previous->link() = new Node(entry,NULL);
+	previous->setLink(new Node(entry,NULL));
+	
 	printf("added successfully");
 	//return head_ptr;
 
 }
 void item_remove(Node*& head_ptr, const Node::value_type& entry)
 {
-	const Node *cursor;
+	Node* cursor;
 	Node* previous;
 		for(cursor = head_ptr; cursor != NULL; cursor = cursor->link())
 		{

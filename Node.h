@@ -5,14 +5,12 @@
  *      Author: kaya
  */
 
-#ifndef NODE_H_
-#define NODE_H_
 
 class Node
 {
 	public:
 		typedef double value_type;
-		Node(const value_type& init_data = value_type(), Node* init_link = value_type )
+		Node(const value_type& init_data = value_type(), Node* init_link = NULL )
 		{
 			data_field = init_data;
 			link_field = init_link;
@@ -24,7 +22,7 @@ class Node
 		}
 		void setLink(Node* new_link)
 		{
-			data_field = new_link;
+			link_field = new_link;
 		}
 		value_type data() const
 		{
@@ -57,4 +55,3 @@ class Node
 		Node* link_field;
 };
 
-#endif /* NODE_H_ */
