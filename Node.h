@@ -1,17 +1,12 @@
-/*
- * Node.h
- *
- *
- *      Author: kaya
- */
-
-
+#include <stdio.h>
+#include <cstdlib> 
+using namespace std;
 class Node
 {
 	public:
 		typedef double value_type;
-		Node(const value_type& init_data = value_type(), Node* init_link = NULL )
-		{
+		Node(const value_type& init_data, Node* init_link)
+		{//both pass thier addresses. 
 			data_field = init_data;
 			link_field = init_link;
 		}
